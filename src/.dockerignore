@@ -1,0 +1,7 @@
+# Ignore everything by default.
+*
+
+# Allow only necessary files.
+!**Cargo.lock
+!**Cargo.toml
+!**.rs

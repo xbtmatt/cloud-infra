@@ -1,0 +1,17 @@
+---
+services:
+  redis:
+    image: 'redis:7.2.5-alpine3.20'
+  server:
+    depends_on:
+    - 'redis'
+    environment:
+      REDIS_URL: 'redis://redis:6379'
+      SERVER_URL: '0.0.0.0:3000'
+    image: 'econialabs/allowlist:latest'
+    links:
+    - 'redis'
+    ports:
+    - '3000:3000'
+    restart: 'unless-stopped'
+...
