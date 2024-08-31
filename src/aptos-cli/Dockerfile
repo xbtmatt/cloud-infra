@@ -20,6 +20,8 @@ ARG CLI_BINARY
 
 ENV CARGO_NET_GIT_FETCH_WITH_CLI=true
 
+RUN echo "Building aptos-cli from $GIT_REPO at $GIT_TAG"
+
 RUN git clone --depth 1 --branch $GIT_TAG $GIT_REPO \
     && apt-get update && apt-get install --no-install-recommends -y \
         libudev-dev=252.26-1~deb12u2 \
