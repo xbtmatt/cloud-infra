@@ -27,6 +27,8 @@
             platforms: '${{ vars.DOCKER_IMAGE_PLATFORMS }}'
             push: 'true'
             tags: '${{ steps.metadata.outputs.tags }}'
+            build-args: |
+              GIT_TAG=${{ github.ref_name }}
         timeout-minutes: 360
     name: 'Build the aptos-cli Docker image and push to Docker Hub'
     'on':
