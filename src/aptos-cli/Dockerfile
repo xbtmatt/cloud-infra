@@ -1,4 +1,8 @@
 # cspell:word RUSTFLAGS
+# cspell:word libudev
+# cspell:word libclang
+# cspell:word libpq
+# cspell:word libdw
 
 ARG GIT_REPO=https://github.com/aptos-labs/aptos-core.git
 ARG CLI_VERSION

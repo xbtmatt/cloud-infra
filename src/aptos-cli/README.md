@@ -1,12 +1,23 @@
+<!--
+cspell:word aarch
+cspell:word toplevel
+cspell:word Macbooks
+-->
+
 # Objective
 
-While the Aptos CLI tool is available for different platforms and architectures,
-it isn't readily available for use as a Docker image specifically for the
-`linux/arm64/v8` aka `aarch64` processor architecture, more commonly known as
-the M1/M2 chips that Macbooks use.
+The Aptos CLI is available for various platforms and architectures as a
+standalone executable; however, there isn't a ready-to-use Docker image for the
+`aarch64` processor architecture (labeled as `linux/arm64/v8` in Docker).
 
-This Docker builds a simple image of the `aptos` CLI, with the CLI version
-corresponding directly Docker image tag:
+This architecture is particularly significant, as it's used in the arm-based
+Apple silicon found in newer Macbooks.
+
+The image built from this Dockerfile serves to address this gap and provide a
+solution for users working with these systems.
+
+It builds an image of the `aptos` CLI for `linux/arm64` and `linux/amd64`, with
+the CLI version corresponding directly Docker image tag:
 
 ```Dockerfile
 # Uses the aptos CLI, version 4.0.0
