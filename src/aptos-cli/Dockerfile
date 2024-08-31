@@ -1,7 +1,10 @@
 # cspell:word RUSTFLAGS
 
 ARG GIT_REPO=https://github.com/aptos-labs/aptos-core.git
-ARG GIT_TAG
+ARG CLI_VERSION
+
+# Remove the leading `v` if the version begins with it.
+ARG GIT_TAG="aptos-cli-v$(echo $CLI_VERSION | sed 's/^v//')"
 
 ARG CLI_BINARY=/aptos-core/target/cli/aptos
 

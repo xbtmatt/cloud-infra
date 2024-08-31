@@ -30,6 +30,21 @@ This will trigger the GitHub `push-aptos-cli.yaml` workflow to build the `aptos`
 CLI Docker image and subsequently push it to the `econialabs` Dockerhub
 repository as `econialabs/aptos-cli:4.0.0`.
 
+## Triggering the workflow manually
+
+The action is also set to trigger manually on `workflow_dispatch`.
+
+You will be prompted to input the version, which will work with both of the
+following formats:
+
+`cli_version: v4.0.0`
+
+or
+
+`cli_version: 4.0.0`
+
+Since the Dockerfile strips the `v` when parsing the `ARG CLI_VERSION` value.
+
 ## Multi-architecture support
 
 Currently the GitHub action triggers builds for `arm64` and `amd64`.
