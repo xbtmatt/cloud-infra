@@ -19,9 +19,9 @@ ENV CARGO_NET_GIT_FETCH_WITH_CLI=true
 
 RUN echo "Building aptos-cli from $GIT_REPO at $GIT_TAG"
 
-RUN git clone --depth 1 --branch $GIT_TAG $GIT_REPO \
+RUN git clone $GIT_REPO --branch $GIT_TAG --depth 1 \
     && apt-get update && apt-get install --no-install-recommends -y \
-        libudev-dev=252.26-1~deb12u2 \
+        libudev-dev=256.5-1 \
         build-essential=12.9 \
         libclang-dev=1:14.0-55.7~deb12u1 \
         libpq-dev=15.8-0+deb12u1 \
