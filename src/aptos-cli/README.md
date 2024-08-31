@@ -14,3 +14,18 @@ FROM econialabs/aptos-cli:4.0.0
 RUN aptos --version
 # > aptos 4.0.0
 ```
+
+## Building the image and pushing it to the `econialabs` Docker hub
+
+To build a Docker image with a specific version of the Aptos CLI, simply push
+the corresponding version tag to GitHub to trigger the GitHub workflow that builds the image in CI:
+
+```shell
+git tag aptos-cli-v4.0.0
+```
+
+This will trigger the GitHub `push-aptos-cli.yaml` workflow to build the `aptos` CLI Docker image and subsequently push it to the `econialabs` Dockerhub repository as `econialabs/aptos-cli:4.0.0`.
+
+## Multi-architecture support
+
+Currently the GitHub action triggers builds for `arm64` and `amd64`.
