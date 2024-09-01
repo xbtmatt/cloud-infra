@@ -21,15 +21,15 @@ RUN echo "Building aptos-cli from $GIT_REPO at $GIT_TAG"
 
 RUN git clone $GIT_REPO --branch $GIT_TAG --depth 1 \
     && apt-get update && apt-get install --no-install-recommends -y \
-        libudev-dev=256.5-1 \
-        build-essential=12.9 \
-        libclang-dev=1:14.0-55.7~deb12u1 \
-        libpq-dev=15.8-0+deb12u1 \
-        libssl-dev=3.0.13-1~deb12u1 \
-        libdw-dev=0.188-2.1 \
-        pkg-config=1.8.1-1 \
-        lld=1:14.0-55.7~deb12u1 \
-        curl=7.88.1-10+deb12u6 \
+        libudev-dev \
+        build-essential \
+        libclang-dev \
+        libpq-dev \
+        libssl-dev \
+        libdw-dev \
+        pkg-config \
+        lld \
+        curl \
     && rm -rf /var/lib/apt/lists/*
 
 # Resolve outdated lockfile from upstream tag, build the binary,
