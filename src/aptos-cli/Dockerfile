@@ -51,7 +51,7 @@ ARG CLI_BINARY
 
 RUN apt-get update                                 \
     && apt-get install --no-install-recommends -y  \
-        curl=7*                                    \
+        curl=8.5*                                  \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
