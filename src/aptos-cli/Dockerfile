@@ -69,9 +69,11 @@ HEALTHCHECK                                   \
     --retries=10                              \
     CMD [ "curl", "http://localhost:8070/" ]
 
-# By default, run the localnet with the indexer API enabled and request to
-# bind to all interfaces. Without this flag, the node may not run correctly
-# on linux/amd64.
+# Note that the `--bind-to 0.0.0.0` flag is required to undo the default CLI
+# behavior of binding to 127.0.0.1 since `aptos` v2.3.2.
+# This is because the CLI is assumed to not be running inside a container, and
+# issues can arise on Windows when binding to 0.0.0.0.
+# See: https://github.com/aptos-labs/aptos-core/commit/d8eef35
 ENTRYPOINT [               \
     "aptos",               \
     "node",                \
