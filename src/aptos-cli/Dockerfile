@@ -62,15 +62,17 @@ WORKDIR /app
 ENV PATH=/usr/local/bin:$PATH
 COPY --from=aptos-cli $CLI_BINARY /usr/local/bin
 
+COPY sh/healthcheck.sh /app/sh/healthcheck.sh
+RUN chmod +x /app/sh/healthcheck.sh
+
 STOPSIGNAL SIGKILL
 
-# Set the default healthcheck to `curl` the default readiness endpoint.
 HEALTHCHECK                                   \
     --interval=5s                             \
     --timeout=5s                              \
     --start-period=60s                        \
     --retries=10                              \
-    CMD [ "curl", "http://localhost:8070/" ]
+    CMD [ "bash", "sh/healthcheck.sh" ]
 
 # Note that the `--bind-to 0.0.0.0` flag is required to undo the default CLI
 # behavior of binding to 127.0.0.1 since `aptos` v2.3.2.
