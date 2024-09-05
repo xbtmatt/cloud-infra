@@ -51,7 +51,10 @@ ARG CLI_BINARY
 
 RUN apt-get update                                 \
     && apt-get install --no-install-recommends -y  \
+        ca-certificates=2024*                      \
         curl=8.5*                                  \
+        git=1:2.43*                                \
+        jq=1.7*                                    \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
