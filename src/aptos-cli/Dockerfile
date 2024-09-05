@@ -79,7 +79,6 @@ ENTRYPOINT [               \
     "node",                \
     "run-localnet",        \
     "--with-indexer-api",  \
-    "--force-restart",     \
     "--bind-to",           \
     "0.0.0.0"              \
 ]
