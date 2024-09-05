@@ -51,7 +51,10 @@ ARG CLI_BINARY
 
 RUN apt-get update                                 \
     && apt-get install --no-install-recommends -y  \
-        curl=7*                                    \
+        ca-certificates=2024*                      \
+        curl=8.5*                                  \
+        git=1:2.43*                                \
+        jq=1.7*                                    \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
@@ -59,25 +62,28 @@ WORKDIR /app
 ENV PATH=/usr/local/bin:$PATH
 COPY --from=aptos-cli $CLI_BINARY /usr/local/bin
 
+COPY src/aptos-cli/sh/healthcheck.sh sh/healthcheck.sh
+RUN chmod +x /app/sh/healthcheck.sh
+
 STOPSIGNAL SIGKILL
 
-# Set the default healthcheck to `curl` the default readiness endpoint.
 HEALTHCHECK                                   \
     --interval=5s                             \
     --timeout=5s                              \
     --start-period=60s                        \
     --retries=10                              \
-    CMD [ "curl", "http://localhost:8070/" ]
+    CMD [ "bash", "sh/healthcheck.sh" ]
 
-# By default, run the localnet with the indexer API enabled and request to
-# bind to all interfaces. Without this flag, the node may not run correctly
-# on linux/amd64.
+# Note that the `--bind-to 0.0.0.0` flag is required to undo the default CLI
+# behavior of binding to 127.0.0.1 since `aptos` v2.3.2.
+# This is because the CLI is assumed to not be running inside a container, and
+# issues can arise on Windows when binding to 0.0.0.0.
+# See: https://github.com/aptos-labs/aptos-core/commit/d8eef35
 ENTRYPOINT [               \
     "aptos",               \
     "node",                \
     "run-localnet",        \
     "--with-indexer-api",  \
-    "--force-restart",     \
     "--bind-to",           \
     "0.0.0.0"              \
 ]
