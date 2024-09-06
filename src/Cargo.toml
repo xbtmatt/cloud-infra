@@ -12,8 +12,8 @@ members = [
 resolver = "2"
 
 [workspace.package]
-authors = ["Econia Labs <developers@econialabs.com>"]
+authors = ["Econia Labs <developers@xbtmatt.com>"]
 edition = "2021"
-homepage = "https://www.econialabs.com"
+homepage = "https://www.xbtmatt.com"
 license = "Apache-2.0"
 rust-version = "1.79.0"

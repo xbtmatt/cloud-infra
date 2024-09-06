@@ -51,7 +51,7 @@ Resources:
           Value: !Sub 'redis://${RedisCluster.ClusterEndpoint.Address}'
         - Name: 'SERVER_URL'
           Value: !Sub '0.0.0.0:${ContainerPort}'
-        Image: !Sub 'econialabs/allowlist:${ImageVersion}'
+        Image: !Sub 'xbtmatt/allowlist:${ImageVersion}'
         LogConfiguration:
           LogDriver: 'awslogs'
           Options:

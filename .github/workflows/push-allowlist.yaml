@@ -9,7 +9,7 @@ jobs:
     - id: 'metadata'
       uses: 'docker/metadata-action@v5'
       with:
-        images: 'econialabs/allowlist'
+        images: 'xbtmatt/allowlist'
         tags: |
           type=match,pattern=allowlist-v(.*),group=1
     - uses: 'docker/setup-qemu-action@v3'

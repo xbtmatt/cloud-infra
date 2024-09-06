@@ -147,7 +147,7 @@ aws apigateway test-invoke-method \
 [nested extractor]: https://docs.rs/axum/0.7.5/axum/extract/index.html#accessing-other-extractors-in-fromrequest-or-fromrequestparts-implementations
 [stack template]: ./cloud-formation/allowlist.cfn.yaml
 [template dockerfile]: ../rust-builder/template.Dockerfile
-[`allowlist` docker hub image]: https://hub.docker.com/repository/docker/econialabs/allowlist/tags
+[`allowlist` docker hub image]: https://hub.docker.com/repository/docker/xbtmatt/allowlist/tags
 [`aws configure sso` wizard]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sso.html#cli-configure-sso-configure
 [`aws_profile`]: https://docs.aws.amazon.com/cli/v1/userguide/cli-configure-files.html#cli-configure-files-using-profiles
 [`axum` graceful shutdown example]: https://github.com/tokio-rs/axum/blob/main/examples/graceful-shutdown/src/main.rs

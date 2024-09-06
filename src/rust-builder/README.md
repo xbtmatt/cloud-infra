@@ -92,7 +92,7 @@ messages based on the platform.
 [`glibc-dynamic`]: https://images.chainguard.dev/directory/image/glibc-dynamic/overview
 [`muslrust`]: https://github.com/clux/muslrust
 [`push-rust-builder.yaml`]: ../../.github/workflows/push-rust-builder.yaml
-[`rust-builder` docker hub image]: https://hub.docker.com/repository/docker/econialabs/rust-builder/tags
+[`rust-builder` docker hub image]: https://hub.docker.com/repository/docker/xbtmatt/rust-builder/tags
 [`rust-builder` dockerfile]: ./Dockerfile
 [`src/hello_world.rs`]: ./src/hello_world.rs
 [`template.dockerfile`]: ./template.Dockerfile

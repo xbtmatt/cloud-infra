@@ -9,7 +9,7 @@ jobs:
     - id: 'metadata'
       uses: 'docker/metadata-action@v5'
       with:
-        images: 'econialabs/rust-builder'
+        images: 'xbtmatt/rust-builder'
         tags: |
           type=match,pattern=rust-builder-v(.*),group=1
     - uses: 'docker/setup-qemu-action@v3'
